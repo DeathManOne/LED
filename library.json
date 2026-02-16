@@ -1,0 +1,14 @@
+{
+  "name": "LED",
+  "version": "1.0.0",
+  "license": "Unlicense",
+  "keywords": "led, esp, pin, arduino",
+  "description": "Turn on/off your RGB led",
+  "repository":
+  {
+    "type": "git",
+    "url": ""
+  },
+  "frameworks": "arduino",
+  "platforms": ["espressif32"]
+}
