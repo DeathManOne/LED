@@ -4,12 +4,12 @@
 ```c++
 #include <led.h>
 LED *_LED;
-#define LED_RED_PIN= 3
-#define LED_GREEN_PIN= 2
-#define LED_BLUE_PIN = 4
+int _LED_RED_PIN = 3
+int _LED_GREEN_PIN = 2
+int _LED_BLUE_PIN = 4
 
 void setup() {
-  LED = new LED(LED_RED_PIN, LED_GREEN_PIN, LED_BLUE_PIN);
+  LED = new LED(_LED_RED_PIN, _LED_GREEN_PIN, _LED_BLUE_PIN);
 }
 ```
 
@@ -56,3 +56,4 @@ if (turnOn)
   { Serial.println("Failed to clear"); }
 else { Serial.println("All leds are turned off"); }
 ```
+
