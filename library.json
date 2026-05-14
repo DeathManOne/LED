@@ -1,15 +1,28 @@
 {
   "name": "LED",
-  "version": "1.0.0",
-  "license": "Unlicense",
-  "keywords": "led, esp, pin, arduino",
-  "description": "Turn on/off your RGB led",
-  "repository":
-  {
+  "version": "1.2.0",
+  "description": "Complete RGB LED control library for ESP32 with PWM brightness, hexadecimal colors and common anode/cathode support.",
+  "keywords": ["led", "rgb", "esp32", "arduino", "gpio", "pin", "light", "pwm", "color"],
+  "repository": {
     "type": "git",
     "url": "https://github.com/DeathManOne/LED.git"
   },
+  "authors": [
+    {
+      "name": "DeathManOne",
+      "url": "https://github.com/DeathManOne",
+      "maintainer": true
+    }
+  ],
+  "license": "GPL-3.0-or-later",
   "frameworks": "arduino",
-  "platforms": ["espressif32"]
-
+  "platforms": ["espressif32"],
+  "headers": [
+    "led.h"
+  ],
+  "dependencies": [],
+  "build": {
+    "includeDir": "include",
+    "srcDir": "src"
+  }
 }
