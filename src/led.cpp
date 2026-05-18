@@ -24,34 +24,23 @@
 #include "../include/led.h"
 
 LED::LED(int pinRed, int pinGreen, int pinBlue, bool commonAnode, uint32_t frequency, uint8_t resolution) {
-    this->_CHANNEL_RED = new uint8_t(0);
-    this->_CHANNEL_GREEN = new uint8_t(1);
-    this->_CHANNEL_BLUE = new uint8_t(2);
-    this->_COMMON_ANODE = new bool(commonAnode);
+    this->_COMMON_ANODE = commonAnode;
 
-    ledcSetup(*this->_CHANNEL_RED, frequency, resolution);
-    ledcSetup(*this->_CHANNEL_GREEN, frequency, resolution);
-    ledcSetup(*this->_CHANNEL_BLUE, frequency, resolution);
+    ledcSetup(this->_CHANNEL_RED, frequency, resolution);
+    ledcSetup(this->_CHANNEL_GREEN, frequency, resolution);
+    ledcSetup(this->_CHANNEL_BLUE, frequency, resolution);
 
-    ledcAttachPin(pinRed, *this->_CHANNEL_RED);
-    ledcAttachPin(pinGreen, *this->_CHANNEL_GREEN);
-    ledcAttachPin(pinBlue, *this->_CHANNEL_BLUE);
+    ledcAttachPin(pinRed, this->_CHANNEL_RED);
+    ledcAttachPin(pinGreen, this->_CHANNEL_GREEN);
+    ledcAttachPin(pinBlue, this->_CHANNEL_BLUE);
 
     this->clear();
-}
-
-LED::~LED() {
-    this->clear();
-    delete this->_CHANNEL_RED;
-    delete this->_CHANNEL_GREEN;
-    delete this->_CHANNEL_BLUE;
-    delete this->_COMMON_ANODE;
 }
 
 void LED::_applyBrightness(uint8_t red, uint8_t green, uint8_t blue) {
-    ledcWrite(*this->_CHANNEL_RED, this->_brightness(red));
-    ledcWrite(*this->_CHANNEL_GREEN, this->_brightness(green));
-    ledcWrite(*this->_CHANNEL_BLUE, this->_brightness(blue));
+    ledcWrite(this->_CHANNEL_RED, this->_brightness(red));
+    ledcWrite(this->_CHANNEL_GREEN, this->_brightness(green));
+    ledcWrite(this->_CHANNEL_BLUE, this->_brightness(blue));
 }
 
 

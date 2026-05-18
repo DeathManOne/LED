@@ -1,6 +1,6 @@
 {
   "name": "LED",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Complete RGB LED control library for ESP32 with PWM brightness, hexadecimal colors and common anode/cathode support.",
   "keywords": ["led", "rgb", "esp32", "arduino", "gpio", "pin", "light", "pwm", "color"],
   "repository": {

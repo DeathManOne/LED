@@ -28,9 +28,11 @@
 
 class LED {
     private:
-        uint8_t *_CHANNEL_RED, *_CHANNEL_GREEN, *_CHANNEL_BLUE;
-        bool *_COMMON_ANODE;
-        inline uint8_t _brightness(uint8_t value) const { return (*this->_COMMON_ANODE) ? 255 - value : value; }
+        bool _COMMON_ANODE = false;
+        uint8_t _CHANNEL_RED = 0;
+        uint8_t _CHANNEL_GREEN = 1;
+        uint8_t _CHANNEL_BLUE = 2;
+        inline uint8_t _brightness(uint8_t value) const { return (this->_COMMON_ANODE) ? 255 - value : value; }
         void _applyBrightness(uint8_t red, uint8_t green, uint8_t blue);
     public:
         /**
@@ -47,7 +49,7 @@ class LED {
         /**
          * @brief destructor
          */
-        ~LED();
+        ~LED() { this->clear(); }
 
         /**
          * @brief disable copy constructor
